@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "956817446616",
+    "project_id": "labflutter-grami",
+    "storage_bucket": "labflutter-grami.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:956817446616:android:ad043aa44efabc5ccb29ad",
+        "android_client_info": {
+          "package_name": "com.grami.grami_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLo8AeNg7ErIU9VhmNeAzWHFa2sLQdYJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

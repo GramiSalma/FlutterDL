@@ -1,0 +1,1 @@
+-e "*.pyc\n__pycache__/\n*.pyo\nbuild/\n*.lock\n.dart_tool/\n.flutter-plugins\n.packages\npubspec.lock\n.env" 

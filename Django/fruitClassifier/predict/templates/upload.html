@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prédiction d'image</title>
+</head>
+<body>
+    <h1>Prédiction d'image avec CNN</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Prédire</button>
+    </form>
+
+    {% if prediction %}
+        {% if prediction.error %}
+            <h2>Erreur: {{ prediction.error }}</h2>
+        {% else %}
+            <h2>Résultat : {{ prediction.predicted_class }}</h2>
+         
+        {% endif %}
+    {% endif %}
+</body>
+</html>

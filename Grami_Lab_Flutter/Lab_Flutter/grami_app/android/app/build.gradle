@@ -1,0 +1,51 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // Le Flutter Gradle Plugin doit être appliqué après les plugins Android et Kotlin.
+    id "dev.flutter.flutter-gradle-plugin"
+    id 'com.google.gms.google-services' // Ajout pour les services Google (Firebase)
+}
+
+android {
+    namespace 'com.grami.grami_app' // Le namespace doit être défini ici
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.grami.grami_app" // ID de l'application
+        minSdkVersion 23  // Minimale SDK Version
+        targetSdkVersion 34  // Cible SDK Version
+        versionCode flutter.versionCode
+        versionName flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug // Utiliser la configuration de signature de debug
+        }
+    }
+}
+
+flutter {
+    source = "../.." // Emplacement du répertoire source Flutter
+}
+
+dependencies {
+    // Importation de la BoM Firebase pour gérer les versions
+    implementation platform('com.google.firebase:firebase-bom:33.6.0')
+
+    // Dépendances Firebase nécessaires
+    implementation 'com.google.firebase:firebase-auth'
+    // Exemple pour Firebase Analytics (si nécessaire)
+    // implementation 'com.google.firebase:firebase-analytics'
+    implementation 'org.tensorflow:tensorflow-lite:1.1.1'
+}

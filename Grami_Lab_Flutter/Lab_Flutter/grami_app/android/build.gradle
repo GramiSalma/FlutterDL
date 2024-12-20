@@ -1,0 +1,22 @@
+plugins {
+    // Plugin Google services, appliqué sans version ici
+    id 'com.google.gms.google-services' apply false // Version spécifiée dans le bloc des plugins
+}
+
+allprojects {
+    repositories {
+        google()  // Dépôt Google pour Firebase et autres
+        mavenCentral() // Dépôt Maven central pour les autres dépendances
+    }
+}
+
+rootProject.buildDir = "../build"  // Définir le répertoire de build global
+
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}" // Répertoire de build pour chaque sous-projet
+    project.evaluationDependsOn(":app") // Assurez-vous que l'évaluation du projet `:app` se fait correctement
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir // Nettoyer le répertoire de build
+}
